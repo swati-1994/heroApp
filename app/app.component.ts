@@ -2,19 +2,16 @@
  * Created by swati on 18/11/16.
  */
 import {Component} from '@angular/core';
-export class Novel {
-    type:string;
-    name:string;
-}
+import { Novel } from './novel';
 
 
 const NOVELS:Novel[] = [
-    {type: 'Scientific', 'name': 'Deception Point'},
-    {type: 'Thriller', 'name': 'Girl with the dragon tattoo'},
-    {type: 'thriller', 'name': 'if tomorrow comes'},
-    {type: 'fiction', 'name': 'Inferno'},
-    {type: 'fiction', 'name': 'Twilight'},
-    {type: 'fiction', 'name': 'Thousand Splendid suns'}
+    {type: 'Scientific', name: 'Deception Point'},
+    {type: 'Thriller', name: 'Girl with the dragon tattoo'},
+    {type: 'thriller', name: 'if tomorrow comes'},
+    {type: 'fiction', name: 'Inferno'},
+    {type: 'fiction', name: 'Twilight'},
+    {type: 'fiction', name: 'Thousand Splendid suns'}
 ];
 
 @Component({
@@ -23,7 +20,10 @@ const NOVELS:Novel[] = [
 <h2>My favourite reads:</h2>
  <ul class="style">
  
- <li *ngFor="let novel of novels" (click)="onSelect(novel)">
+ <li *ngFor="let novel of novels" (click)="onSelect(novel)"  [class.selected]="novel === selectedNovel">
+ 
+ 
+ 
   <span class="badge">{{novel.type}}</span> {{novel.name}}
 </li>
  
@@ -33,12 +33,10 @@ const NOVELS:Novel[] = [
    <!--<span class="badge">{{novel.type}}</span> {{novel.name}}>-->
 <!--</li> -->
  </ul>
+ <my-novel-detail [novel]="selectedNovel"></my-novel-detail>
 
-    <h2>Let us read about {{novel.name}}!  </h2>
-        <div>
-        <label>name:</label>
-        <input [(ngModel)]="novel.name" placeholder="name">
-    </div>`,
+ 
+    `,
 
     styles: [`
   .selected {
@@ -92,18 +90,25 @@ const NOVELS:Novel[] = [
 
 
 })
+
+
 export class AppComponent {
+
+
 
     novels = NOVELS;
 
     title = 'Novels';
     novel:Novel = {
-
         type: 'Fiction',
         name: 'Emma'
-
     };
 
     selectedNovel: Novel;
+
+    onSelect(novel: Novel): void {
+        this.selectedNovel = novel;
+    }
+
 
 }
