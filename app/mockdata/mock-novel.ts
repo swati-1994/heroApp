@@ -1,6 +1,5 @@
 import {Novel} from '../novel';
-
-const NOVELS:Novel[] = [
+export const NOVELS:Novel[] = [
     {type: 'Scientific', name: 'Deception Point'},
     {type: 'Thriller', name: 'Girl with the dragon tattoo'},
     {type: 'thriller', name: 'if tomorrow comes'},

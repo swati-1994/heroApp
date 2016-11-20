@@ -1,12 +1,7 @@
-<h1>{{title}}</h1>
-<h2>My favourite reads:</h2>
-<ul class="list-group">
-    <li class="list-group-item" *ngFor="let novel of novels" (click)="onSelect(novel)">
-        <span>{{novel.type}}</span> {{novel.name}}
-    </li>
-</ul>
-<h2>Let us read about {{novel.name}}! </h2>
-<div>
-    <label>name:</label>
-    <input [(ngModel)]="novel.name" placeholder="name">
+<div *ngIf="novel">
+    <h2>Let us read about {{novel.name}}!  </h2>
+    <div>
+        <label>name:</label>
+        <input [(ngModel)]="novel.name" placeholder="name">
+    </div>
 </div>

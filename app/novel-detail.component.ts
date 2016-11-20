@@ -1,19 +1,11 @@
-import { Component, Input } from '@angular/core';
-import { Novel } from './novel';
+import {Component, Input} from '@angular/core';
+import {Novel} from './novel';
 @Component({
     selector: 'my-novel-detail',
-    template: `
-<div *ngIf="selectedNovel">
-    <h2>Let us read about {{selectedNovel.name}}!  </h2>
-<div>
-    <label>name:</label>
-<input [(ngModel)]="selectedNovel.name" placeholder="name">
-    </div>
-    </div>`
-
-
+    templateUrl: 'app/details/index.html',
+    styleUrls: ['app/details/index.css']
 })
 export class NovelDetailComponent {
     @Input()
-    novel: Novel;
+    novel:Novel;
 }
