@@ -2,31 +2,25 @@
  * Created by swati on 18/11/16.
  */
 import {Component} from '@angular/core';
-export class Novel {
-    type:string;
-    name:string;
-}
-
-const NOVELS:Novel[] = [
-    {type: 'Scientific', 'name': 'Deception Point'},
-    {type: 'Thriller', 'name': 'Girl with the dragon tattoo'},
-    {type: 'thriller', 'name': 'if tomorrow comes'},
-    {type: 'fiction', 'name': 'Inferno'},
-    {type: 'fiction', 'name': 'Twilight'},
-    {type: 'fiction', 'name': 'Thousand Splendid suns'}
-];
-
+import {Novel} from './novel';
+import {NovelService} from './services/novel.services'
 @Component({
     selector: 'my-app',
     templateUrl: 'app/listing/list.html',
-    styleUrls: ['app/listing/list.css']
+    stylesUrls: ['app/listing/list.css'] // must be an array //
 })
+
+
 export class AppComponent {
-    novels = NOVELS;
+    novels:Novel[];
     title = 'Novels';
     novel:Novel = {
         type: 'Fiction',
         name: 'Emma'
     };
     selectedNovel:Novel;
+
+    onSelect(novel:Novel):void {
+        this.selectedNovel = novel;
+    }
 }

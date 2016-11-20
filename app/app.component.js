@@ -12,34 +12,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by swati on 18/11/16.
  */
 var core_1 = require('@angular/core');
-var Novel = (function () {
-    function Novel() {
-    }
-    return Novel;
-}());
-exports.Novel = Novel;
-var NOVELS = [
-    { type: 'Scientific', 'name': 'Deception Point' },
-    { type: 'Thriller', 'name': 'Girl with the dragon tattoo' },
-    { type: 'thriller', 'name': 'if tomorrow comes' },
-    { type: 'fiction', 'name': 'Inferno' },
-    { type: 'fiction', 'name': 'Twilight' },
-    { type: 'fiction', 'name': 'Thousand Splendid suns' }
-];
 var AppComponent = (function () {
     function AppComponent() {
-        this.novels = NOVELS;
         this.title = 'Novels';
         this.novel = {
             type: 'Fiction',
             name: 'Emma'
         };
     }
+    AppComponent.prototype.onSelect = function (novel) {
+        this.selectedNovel = novel;
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
             templateUrl: 'app/listing/list.html',
-            styleUrls: ['app/listing/list.css']
+            stylesUrls: ['app/listing/list.css'] // must be an array //
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
