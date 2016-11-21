@@ -17,9 +17,17 @@ import {Location}                 from '@angular/common';
         </div>    
          <button (click)="goBack()">Back</button>
     </div>
+    <button (click)="save()">Save</button>
    `
 })
 export class NovelDetailComponent implements OnInit {
+
+
+    save(): void {
+        this.novelService.update(this.novel)
+            .then(() => this.goBack());
+    }
+
     ngOnInit():void {
         this.route.params
             .switchMap((params:Params) => this.novelService.getNovel(+params['id']))

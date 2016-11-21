@@ -9,13 +9,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var mock_novels_1 = require('./mock-novels');
+require('rxjs/add/operator/toPromise');
 require('rxjs/add/operator/switchMap');
+var http_1 = require('@angular/http');
 var NovelService = (function () {
-    function NovelService() {
+    function NovelService(http) {
+        this.http = http;
+        this.novelsUrl = 'app/novels';
+        this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
     }
+    NovelService.prototype.handleError = function (error) {
+        console.error('An error occurred', error); // for demo purposes only
+        return Promise.reject(error.message || error);
+    };
+    NovelService.prototype.update = function (novel) {
+        var url = this.novelsUrl + "/" + novel.id;
+        return this.http
+            .put(url, JSON.stringify(novel), { headers: this.headers })
+            .toPromise()
+            .then(function () { return novel; })
+            .catch(this.handleError);
+    };
+    NovelService.prototype.create = function (name) {
+        return this.http
+            .post(this.novelsUrl, JSON.stringify({ name: name }), { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return res.json().data; })
+            .catch(this.handleError);
+    };
     NovelService.prototype.getNovels = function () {
-        return Promise.resolve(mock_novels_1.NOVELS);
+        return this.http.get(this.novelsUrl)
+            .toPromise()
+            .then(function (response) { return response.json().data; })
+            .catch(this.handleError);
     };
     NovelService.prototype.getNovelsSlowly = function () {
         var _this = this;
@@ -30,7 +56,7 @@ var NovelService = (function () {
     };
     NovelService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], NovelService);
     return NovelService;
 }());

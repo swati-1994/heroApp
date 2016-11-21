@@ -3,16 +3,27 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule}   from '@angular/forms';
 import {NovelsComponent}  from './novels.component';
 import {NovelDetailComponent} from './novel-detail.component';
+
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
+
+import { DashboardComponent }   from './dashboard.component';
 import {RouterModule}   from '@angular/router';
 import {AppComponent} from "./app.component";
 import { NovelService } from './novel.service';
 import { AppRoutingModule }     from './app-routing.module';
+import { HttpModule }    from '@angular/http';
+import { NovelDetailComponent }  from './novel-detail.component';
 
 import {DashboardComponent} from "./dashboard.component";
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
+        HttpModule,
+        InMemoryWebApiModule.forRoot(InMemoryDataService),
+        
+
         AppRoutingModule
         // RouterModule.forRoot([
         //     {

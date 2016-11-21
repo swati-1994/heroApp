@@ -20,3 +20,10 @@
     </h2>
     <button (click)="gotoDetail()">View Details</button>
 </div>
+
+<div>
+    <label>Novel name:</label> <input #novelName />
+    <button (click)="add(novelName.value); novelName.value=''">
+        Add Novel
+    </button>
+</div>

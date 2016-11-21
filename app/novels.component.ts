@@ -5,7 +5,7 @@ import {Component} from '@angular/core';
 import {Novel} from './novel';
 import {NovelDetailComponent} from './novel-detail.component';
 
-import {NOVELS} from './mock-novels';
+import {NOVELS} from './in-memory-data.service.ts';
 import {OnInit} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {Router} from '@angular/router';
@@ -33,6 +33,19 @@ const novels:Novel[] = [];
 
 
 export class NovelsComponent implements OnInit {
+
+
+    add(name: string): void {
+        name = name.trim();
+        if (!name) { return; }
+        this.novelService.create(name)
+            .then(novel => {
+                this.novels.push(novel);
+                this.selectedNovel = null;
+            });
+    }
+
+
 
     ngOnInit():void {
 

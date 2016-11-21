@@ -12,7 +12,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by swati on 18/11/16.
  */
 var core_1 = require('@angular/core');
-var mock_novels_1 = require('./mock-novels');
+var in_memory_data_service_ts_1 = require('./in-memory-data.service.ts');
 var router_1 = require('@angular/router');
 var novel_service_1 = require('./novel.service');
 var novels = [];
@@ -28,7 +28,7 @@ var NovelsComponent = (function () {
     function NovelsComponent(router, novelService) {
         this.router = router;
         this.novelService = novelService;
-        this.novels = mock_novels_1.NOVELS;
+        this.novels = in_memory_data_service_ts_1.NOVELS;
         this.title = 'Novels';
         this.novel = {
             type: 'Fiction',
@@ -36,6 +36,18 @@ var NovelsComponent = (function () {
             id: 1
         };
     }
+    NovelsComponent.prototype.add = function (name) {
+        var _this = this;
+        name = name.trim();
+        if (!name) {
+            return;
+        }
+        this.novelService.create(name)
+            .then(function (novel) {
+            _this.novels.push(novel);
+            _this.selectedNovel = null;
+        });
+    };
     NovelsComponent.prototype.ngOnInit = function () {
         this.getNovels();
     };

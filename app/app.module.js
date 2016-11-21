@@ -13,10 +13,13 @@ var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var novels_component_1 = require('./novels.component');
 var novel_detail_component_1 = require('./novel-detail.component');
+var angular_in_memory_web_api_1 = require('angular-in-memory-web-api');
+var in_memory_data_service_1 = require('./in-memory-data.service');
+var dashboard_component_1 = require('./dashboard.component');
 var app_component_1 = require("./app.component");
 var novel_service_1 = require('./novel.service');
 var app_routing_module_1 = require('./app-routing.module');
-var dashboard_component_1 = require("./dashboard.component");
+var http_1 = require('@angular/http');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -25,6 +28,8 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
+                http_1.HttpModule,
+                angular_in_memory_web_api_1.InMemoryWebApiModule.forRoot(in_memory_data_service_1.InMemoryDataService),
                 app_routing_module_1.AppRoutingModule
             ],
             declarations: [
