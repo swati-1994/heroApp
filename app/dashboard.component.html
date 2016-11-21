@@ -1,0 +1,10 @@
+<h3>Top Novels</h3>
+<div class="grid grid-pad">
+    <a *ngFor="let novel of novels"  [routerLink]="['/detail', novel.id]"  class="col-1-4">
+
+    <!--<div *ngFor="let novel of novels" class="col-1-4">-->
+        <div class="module novel">
+            <h4>{{novel.name}}</h4>
+        </div>
+</a>
+</div>

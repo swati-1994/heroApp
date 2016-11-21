@@ -10,19 +10,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var novel_1 = require('./novel');
+require('rxjs/add/operator/switchMap');
+var novel_service_1 = require('./novel.service');
+var router_1 = require('@angular/router');
+var common_1 = require('@angular/common');
 var NovelDetailComponent = (function () {
-    function NovelDetailComponent() {
+    function NovelDetailComponent(novelService, route, location) {
+        this.novelService = novelService;
+        this.route = route;
+        this.location = location;
     }
+    NovelDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params
+            .switchMap(function (params) { return _this.novelService.getNovels(+params['name']); })
+            .subscribe(function (novel) { return _this.novel = novel; });
+    };
+    NovelDetailComponent.prototype.goBack = function () {
+        this.location.back();
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', novel_1.Novel)
     ], NovelDetailComponent.prototype, "novel", void 0);
     NovelDetailComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'my-novel-detail',
-            template: "\n<div *ngIf=\"novel\">\n    <h2>Let us read about {{novel.name}}!  </h2>\n<div>\n    <label>name:</label>\n<input [(ngModel)]=\"novel.name\" placeholder=\"name\">\n    </div>\n    </div>"
+            template: "\n<div *ngIf=\"novel\">\n    <h2>Let us read about {{novel.name}}!  </h2>\n<div>\n    <label>name:</label>\n<input [(ngModel)]=\"novel.name\" placeholder=\"name\">\n    </div>\n    \n     <button (click)=\"goBack()\">Back</button>\n    </div>\n   "
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [novel_service_1.NovelService, router_1.ActivatedRoute, common_1.Location])
     ], NovelDetailComponent);
     return NovelDetailComponent;
 }());

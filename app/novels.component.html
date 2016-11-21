@@ -1,0 +1,25 @@
+<h2>My favourite reads:</h2>
+<ul class="style">
+
+    <li *ngFor="let novel of novels" (click)="onSelect(novel)"  [class.selected]="novel === selectedNovel"
+        (click)="onSelect(novel)">
+
+
+
+        <span class="badge">{{novel.type}}</span> {{novel.name}}
+    </li>
+
+
+
+    <!--<li *ngFor="let novel of novels  (click)= "onSelect(novel)">-->
+    <!--<span class="badge">{{novel.type}}</span> {{novel.name}}>-->
+    <!--</li> -->
+</ul>
+<!--<my-novel-detail [novel]="selectedNovel"></my-novel-detail>-->
+
+<div *ngIf="selectedNovel">
+    <h2>
+        {{selectedNovel.name | uppercase}} is my favourite novel
+    </h2>
+    <button (click)="gotoDetail()">View Details</button>
+</div>

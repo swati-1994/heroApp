@@ -13,9 +13,9 @@ var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var novels_component_1 = require('./novels.component');
 var novel_detail_component_1 = require('./novel-detail.component');
-var router_1 = require('@angular/router');
 var app_component_1 = require("./app.component");
 var novel_service_1 = require('./novel.service');
+var app_routing_module_1 = require('./app-routing.module');
 var dashboard_component_1 = require("./dashboard.component");
 var AppModule = (function () {
     function AppModule() {
@@ -25,25 +25,7 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
-                router_1.RouterModule.forRoot([
-                    {
-                        path: 'novels',
-                        component: novels_component_1.NovelsComponent
-                    },
-                    {
-                        path: 'dashboard',
-                        component: dashboard_component_1.DashboardComponent
-                    },
-                    {
-                        path: '',
-                        redirectTo: '/dashboard',
-                        pathMatch: 'full'
-                    },
-                    {
-                        path: 'detail/:id',
-                        component: novel_detail_component_1.NovelDetailComponent
-                    },
-                ])
+                app_routing_module_1.AppRoutingModule
             ],
             declarations: [
                 novels_component_1.NovelsComponent,

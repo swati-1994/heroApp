@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var mock_novels_1 = require('./mock-novels');
+require('rxjs/add/operator/switchMap');
 var NovelService = (function () {
     function NovelService() {
     }
@@ -25,6 +26,10 @@ var NovelService = (function () {
             return setTimeout(resolve, 10000);
         }) // delay 2 seconds
             .then(function () { return _this.getNovels(); });
+    };
+    NovelService.prototype.getNovel = function (name) {
+        return this.getNovels()
+            .then(function (novels) { return novels.find(function (novel) { return novel.name === name; }); });
     };
     NovelService = __decorate([
         core_1.Injectable(), 

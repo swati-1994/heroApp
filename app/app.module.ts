@@ -6,32 +6,33 @@ import {NovelDetailComponent} from './novel-detail.component';
 import {RouterModule}   from '@angular/router';
 import {AppComponent} from "./app.component";
 import { NovelService } from './novel.service';
+import { AppRoutingModule }     from './app-routing.module';
 
 import {DashboardComponent} from "./dashboard.component";
-import {Novel} from "./novel";
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
-        RouterModule.forRoot([
-            {
-                path: 'novels',
-                component: NovelsComponent
-            },
-            {
-                path: 'dashboard',
-                component: DashboardComponent
-            },
-            {
-                path: '',
-                redirectTo: '/dashboard',
-                pathMatch: 'full'
-            },
-            {
-                path: 'detail/:id',
-                component: NovelDetailComponent
-            },
-        ])
+        AppRoutingModule
+        // RouterModule.forRoot([
+        //     {
+        //         path: 'novels',
+        //         component: NovelsComponent
+        //     },
+        //     {
+        //         path: 'dashboard',
+        //         component: DashboardComponent
+        //     },
+        //     {
+        //         path: '',
+        //         redirectTo: '/dashboard',
+        //         pathMatch: 'full'
+        //     },
+        //     {
+        //         path: 'detail/:id',
+        //         component: NovelDetailComponent
+        //     },
+        // ])
 
     ],
     declarations: [

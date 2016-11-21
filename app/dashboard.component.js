@@ -21,14 +21,13 @@ var DashboardComponent = (function () {
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.novelService.getNovels()
-            .then(function (heroes) { return _this.novels = heroes.slice(1, 3); });
+            .then(function (novels) { return _this.novels = novels.slice(1, 4); });
     };
     DashboardComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'my-dashboard',
             templateUrl: 'dashboard.component.html',
-            template: " <h3>My Dashboard</h3>\n <h3>Top Novels</h3>\n<div class=\"grid grid-pad\">\n  <div *ngFor=\"let novel of novels\" class=\"col-1-4\">\n    <div class=\"module novel\">\n      <h4>{{novel.name}}</h4>\n    </div>\n  </div>\n</div>\n\n \n "
         }), 
         __metadata('design:paramtypes', [novel_service_1.NovelService])
     ], DashboardComponent);
