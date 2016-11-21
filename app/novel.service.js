@@ -22,7 +22,7 @@ var NovelService = (function () {
     NovelService.prototype.getNovelsSlowly = function () {
         var _this = this;
         return new Promise(function (resolve) {
-            return setTimeout(resolve, 2000);
+            return setTimeout(resolve, 10000);
         }) // delay 2 seconds
             .then(function () { return _this.getNovels(); });
     };

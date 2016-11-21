@@ -116,6 +116,10 @@ export class NovelsComponent implements OnInit {
         this.novelService.getNovels().then(novels => this.novels = novels)
     }
 
+    getNovelsSlowly(): void {
+        this.novelService.getNovelsSlowly().then(novels => this.novels = novels)
+    }
+
     title = 'Novels';
     novel:Novel = {
         type: 'Fiction',

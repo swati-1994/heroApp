@@ -19,7 +19,7 @@ export class NovelService {
 
     getNovelsSlowly(): Promise<Novel[]> {
         return new Promise<Novel[]>(resolve =>
-            setTimeout(resolve, 2000)) // delay 2 seconds
+            setTimeout(resolve, 10000)) // delay 2 seconds
             .then(() => this.getNovels());
     }
 

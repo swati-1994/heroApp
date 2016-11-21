@@ -40,6 +40,10 @@ var NovelsComponent = (function () {
         var _this = this;
         this.novelService.getNovels().then(function (novels) { return _this.novels = novels; });
     };
+    NovelsComponent.prototype.getNovelsSlowly = function () {
+        var _this = this;
+        this.novelService.getNovelsSlowly().then(function (novels) { return _this.novels = novels; });
+    };
     NovelsComponent.prototype.onSelect = function (novel) {
         this.selectedNovel = novel;
     };
