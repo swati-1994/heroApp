@@ -20,7 +20,7 @@ const novels: Novel[]
 // ];
 
 @Component({
-    selector: 'my-app',
+    selector: 'my-novels',
     template: `<h1>{{title}}</h1>
 <h2>My favourite reads:</h2>
  <ul class="style">
@@ -100,7 +100,7 @@ const novels: Novel[]
 })
 
 
-export class AppComponent implements OnInit {
+export class NovelsComponent implements OnInit {
 
     ngOnInit(): void {
 
@@ -115,7 +115,7 @@ export class AppComponent implements OnInit {
     getNovels(): void {
         this.novelService.getNovels().then(novels => this.novels = novels)
     }
-    
+
     title = 'Novels';
     novel:Novel = {
         type: 'Fiction',

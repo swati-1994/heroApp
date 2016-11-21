@@ -9,28 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var forms_1 = require('@angular/forms');
-var novels_component_1 = require('./novels.component');
-var novel_detail_component_1 = require('./novel-detail.component');
-var AppModule = (function () {
-    function AppModule() {
+var novel_1 = require('./novel');
+var NovelDetailComponent = (function () {
+    function NovelDetailComponent() {
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                platform_browser_1.BrowserModule,
-                forms_1.FormsModule
-            ],
-            declarations: [
-                novels_component_1.NovelsComponent,
-                novel_detail_component_1.NovelDetailComponent
-            ],
-            bootstrap: [novels_component_1.NovelsComponent]
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', novel_1.Novel)
+    ], NovelDetailComponent.prototype, "novel", void 0);
+    NovelDetailComponent = __decorate([
+        core_1.Component({
+            selector: 'my-novel-detail',
+            template: "\n<div *ngIf=\"novel\">\n    <h2>Let us read about {{novel.name}}!  </h2>\n<div>\n    <label>name:</label>\n<input [(ngModel)]=\"novel.name\" placeholder=\"name\">\n    </div>\n    </div>"
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], NovelDetailComponent);
+    return NovelDetailComponent;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.NovelDetailComponent = NovelDetailComponent;
+//# sourceMappingURL=novel-detail.component.js.map

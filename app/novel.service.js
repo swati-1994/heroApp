@@ -9,28 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var forms_1 = require('@angular/forms');
-var novels_component_1 = require('./novels.component');
-var novel_detail_component_1 = require('./novel-detail.component');
-var AppModule = (function () {
-    function AppModule() {
+var mock_novels_1 = require('./mock-novels');
+var NovelService = (function () {
+    function NovelService() {
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [
-                platform_browser_1.BrowserModule,
-                forms_1.FormsModule
-            ],
-            declarations: [
-                novels_component_1.NovelsComponent,
-                novel_detail_component_1.NovelDetailComponent
-            ],
-            bootstrap: [novels_component_1.NovelsComponent]
-        }), 
+    NovelService.prototype.getNovels = function () {
+        return Promise.resolve(mock_novels_1.NOVELS);
+    };
+    // getNovels(): Novel[] {
+    //     return NOVELS;
+    // }
+    NovelService.prototype.getNovelsSlowly = function () {
+        var _this = this;
+        return new Promise(function (resolve) {
+            return setTimeout(resolve, 2000);
+        }) // delay 2 seconds
+            .then(function () { return _this.getNovels(); });
+    };
+    NovelService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], NovelService);
+    return NovelService;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.NovelService = NovelService;
+//# sourceMappingURL=novel.service.js.map
