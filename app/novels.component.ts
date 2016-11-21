@@ -35,6 +35,17 @@ const novels:Novel[] = [];
 export class NovelsComponent implements OnInit {
 
 
+    delete(novel: Novel): void {
+        this.novelService
+            .delete(novel.id)
+            .then(() => {
+                this.novels = this.novels.filter(h => h !== novel);
+                if (this.selectedNovel === novel) { this.selectedNovel = null; }
+            });
+    }
+
+
+
     add(name: string): void {
         name = name.trim();
         if (!name) { return; }

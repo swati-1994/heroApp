@@ -36,6 +36,17 @@ var NovelsComponent = (function () {
             id: 1
         };
     }
+    NovelsComponent.prototype.delete = function (novel) {
+        var _this = this;
+        this.novelService
+            .delete(novel.id)
+            .then(function () {
+            _this.novels = _this.novels.filter(function (h) { return h !== novel; });
+            if (_this.selectedNovel === novel) {
+                _this.selectedNovel = null;
+            }
+        });
+    };
     NovelsComponent.prototype.add = function (name) {
         var _this = this;
         name = name.trim();

@@ -37,6 +37,13 @@ var NovelService = (function () {
             .then(function (res) { return res.json().data; })
             .catch(this.handleError);
     };
+    NovelService.prototype.delete = function (id) {
+        var url = this.novelsUrl + "/" + id;
+        return this.http.delete(url, { headers: this.headers })
+            .toPromise()
+            .then(function () { return null; })
+            .catch(this.handleError);
+    };
     NovelService.prototype.getNovels = function () {
         return this.http.get(this.novelsUrl)
             .toPromise()

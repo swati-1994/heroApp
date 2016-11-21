@@ -5,6 +5,9 @@
         (click)="onSelect(novel)">
 
         <span class="badge">{{novel.type}}</span> {{novel.name}}
+        <button class="delete"
+                (click)="delete(novel); $event.stopPropagation()">x</button>
+
     </li>
 
 
@@ -26,4 +29,9 @@
     <button (click)="add(novelName.value); novelName.value=''">
         Add Novel
     </button>
+
+    <button class="delete"
+            (click)="delete(novel); $event.stopPropagation()">x</button>
+
+
 </div>
