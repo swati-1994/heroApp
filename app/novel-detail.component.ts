@@ -8,7 +8,7 @@ import { NovelService } from './novel.service';
 import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
 
-import { NovelService } from './novel.service';
+
 
 
 @Component({

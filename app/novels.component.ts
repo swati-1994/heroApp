@@ -72,9 +72,7 @@ export class NovelsComponent implements OnInit {
         this.selectedNovel = novel;
     }
 
-    gotoDetail(): void {
-        this.router.navigate(['/detail', this.selectedNovel.name]);
-    }
+   
 
 
 

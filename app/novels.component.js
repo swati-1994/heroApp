@@ -51,9 +51,6 @@ var NovelsComponent = (function () {
     NovelsComponent.prototype.onSelect = function (novel) {
         this.selectedNovel = novel;
     };
-    NovelsComponent.prototype.gotoDetail = function () {
-        this.router.navigate(['/detail', this.selectedNovel.name]);
-    };
     NovelsComponent = __decorate([
         core_1.Component({
             selector: 'my-novels',
