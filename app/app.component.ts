@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
     <h1>{{title}}</h1>
    <nav>
      <a routerLink="/dashboard">Dashboard</a>
-     <a routerLink="/heroes">Heroes</a>
+     <a routerLink="/novels">Novels</a>
    </nav>
    <router-outlet></router-outlet>
     <!--<my-novels></my-novels>-->

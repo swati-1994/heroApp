@@ -95,7 +95,7 @@ const novels: Novel[]=[];
   
 `],
 
-    providers: [NovelService]
+   
 
 })
 

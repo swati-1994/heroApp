@@ -15,6 +15,7 @@ var novels_component_1 = require('./novels.component');
 var novel_detail_component_1 = require('./novel-detail.component');
 var router_1 = require('@angular/router');
 var app_component_1 = require("./app.component");
+var novel_service_1 = require('./novel.service');
 var dashboard_component_1 = require("./dashboard.component");
 var AppModule = (function () {
     function AppModule() {
@@ -37,7 +38,11 @@ var AppModule = (function () {
                         path: '',
                         redirectTo: '/dashboard',
                         pathMatch: 'full'
-                    }
+                    },
+                    {
+                        path: 'detail/:id',
+                        component: novel_detail_component_1.NovelDetailComponent
+                    },
                 ])
             ],
             declarations: [
@@ -46,7 +51,8 @@ var AppModule = (function () {
                 novel_detail_component_1.NovelDetailComponent,
                 app_component_1.AppComponent
             ],
-            bootstrap: [app_component_1.AppComponent]
+            bootstrap: [app_component_1.AppComponent],
+            providers: [novel_service_1.NovelService]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

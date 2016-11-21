@@ -5,7 +5,10 @@ import {NovelsComponent}  from './novels.component';
 import {NovelDetailComponent} from './novel-detail.component';
 import {RouterModule}   from '@angular/router';
 import {AppComponent} from "./app.component";
+import { NovelService } from './novel.service';
+
 import {DashboardComponent} from "./dashboard.component";
+import {Novel} from "./novel";
 @NgModule({
     imports: [
         BrowserModule,
@@ -23,7 +26,11 @@ import {DashboardComponent} from "./dashboard.component";
                 path: '',
                 redirectTo: '/dashboard',
                 pathMatch: 'full'
-            }
+            },
+            {
+                path: 'detail/:id',
+                component: NovelDetailComponent
+            },
         ])
 
     ],
@@ -33,7 +40,8 @@ import {DashboardComponent} from "./dashboard.component";
         NovelDetailComponent,
         AppComponent
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    providers: [NovelService]
 })
 
 

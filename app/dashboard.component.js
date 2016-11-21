@@ -12,15 +12,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by swati on 21/11/16.
  */
 var core_1 = require('@angular/core');
+var novel_service_1 = require('./novel.service');
 var DashboardComponent = (function () {
-    function DashboardComponent() {
+    function DashboardComponent(novelService) {
+        this.novelService = novelService;
+        this.novels = [];
     }
+    DashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.novelService.getNovels()
+            .then(function (heroes) { return _this.novels = heroes.slice(1, 3); });
+    };
     DashboardComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'my-dashboard',
-            template: '<h3>My Dashboard</h3>'
+            templateUrl: 'dashboard.component.html',
+            template: " <h3>My Dashboard</h3>\n <h3>Top Novels</h3>\n<div class=\"grid grid-pad\">\n  <div *ngFor=\"let novel of novels\" class=\"col-1-4\">\n    <div class=\"module novel\">\n      <h4>{{novel.name}}</h4>\n    </div>\n  </div>\n</div>\n\n \n "
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [novel_service_1.NovelService])
     ], DashboardComponent);
     return DashboardComponent;
 }());
