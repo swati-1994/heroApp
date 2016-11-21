@@ -4,5 +4,6 @@
 export class Novel {
     name: string;
     type: string;
+    id:number;
 }
 

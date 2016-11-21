@@ -13,6 +13,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  */
 var core_1 = require('@angular/core');
 var mock_novels_1 = require('./mock-novels');
+var router_1 = require('@angular/router');
 var novel_service_1 = require('./novel.service');
 var novels = [];
 // const NOVELS:Novel[] = [
@@ -31,14 +32,15 @@ var NovelsComponent = (function () {
         this.title = 'Novels';
         this.novel = {
             type: 'Fiction',
-            name: 'Emma'
+            name: 'Emma',
+            id: 1
         };
     }
     NovelsComponent.prototype.ngOnInit = function () {
         this.getNovels();
     };
     NovelsComponent.prototype.gotoDetail = function () {
-        this.router.navigate(['/detail', this.selectedNovel.name]);
+        this.router.navigate(['/detail', this.selectedNovel.id]);
     };
     NovelsComponent.prototype.getNovels = function () {
         var _this = this;
@@ -54,10 +56,10 @@ var NovelsComponent = (function () {
     NovelsComponent = __decorate([
         core_1.Component({
             selector: 'my-novels',
-            templateUrl: 'novels.component.html',
-            styleUrls: ['novels.component.css'],
+            templateUrl: 'app/novels.component.html',
+            styleUrls: ['app/novels.component.css'],
         }), 
-        __metadata('design:paramtypes', [Object, novel_service_1.NovelService])
+        __metadata('design:paramtypes', [router_1.Router, novel_service_1.NovelService])
     ], NovelsComponent);
     return NovelsComponent;
 }());

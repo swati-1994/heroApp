@@ -17,9 +17,6 @@ var NovelService = (function () {
     NovelService.prototype.getNovels = function () {
         return Promise.resolve(mock_novels_1.NOVELS);
     };
-    // getNovels(): Novel[] {
-    //     return NOVELS;
-    // }
     NovelService.prototype.getNovelsSlowly = function () {
         var _this = this;
         return new Promise(function (resolve) {
@@ -27,9 +24,9 @@ var NovelService = (function () {
         }) // delay 2 seconds
             .then(function () { return _this.getNovels(); });
     };
-    NovelService.prototype.getNovel = function (name) {
+    NovelService.prototype.getNovel = function (id) {
         return this.getNovels()
-            .then(function (novels) { return novels.find(function (novel) { return novel.name === name; }); });
+            .then(function (novels) { return novels.find(function (novel) { return novel.id === id; }); });
     };
     NovelService = __decorate([
         core_1.Injectable(), 

@@ -2,16 +2,17 @@
  * Created by swati on 18/11/16.
  */
 import {Component} from '@angular/core';
-import { Novel } from './novel';
-import { NovelDetailComponent } from './novel-detail.component';
+import {Novel} from './novel';
+import {NovelDetailComponent} from './novel-detail.component';
 
-import { NOVELS } from './mock-novels';
-import { OnInit } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AppRoutingModule }     from './app-routing.module';
-import { NovelService } from './novel.service';
+import {NOVELS} from './mock-novels';
+import {OnInit} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {Router} from '@angular/router';
+import {AppRoutingModule}     from './app-routing.module';
+import {NovelService} from './novel.service';
 
-const novels: Novel[]=[];
+const novels:Novel[] = [];
 
 // const NOVELS:Novel[] = [
 //     {type: 'Scientific', name: 'Deception Point'},
@@ -24,10 +25,8 @@ const novels: Novel[]=[];
 
 @Component({
     selector: 'my-novels',
-        templateUrl: 'novels.component.html',
-    styleUrls: [ 'novels.component.css' ],
-
-
+    templateUrl: 'app/novels.component.html',
+    styleUrls: ['app/novels.component.css'],
 
 
 })
@@ -35,45 +34,42 @@ const novels: Novel[]=[];
 
 export class NovelsComponent implements OnInit {
 
-    ngOnInit(): void {
+    ngOnInit():void {
 
         this.getNovels();
 
     }
 
-    constructor(
-        private router: Router,
-
-        private novelService: NovelService) { }
+    constructor(private router:Router,
+                private novelService:NovelService) {
+    }
 
     novels = NOVELS;
 
-    gotoDetail(): void {
-        this.router.navigate(['/detail', this.selectedNovel.name]);
+    gotoDetail():void {
+        this.router.navigate(['/detail', this.selectedNovel.id]);
     }
 
-    getNovels(): void {
+    getNovels():void {
         this.novelService.getNovels().then(novels => this.novels = novels)
     }
 
-    getNovelsSlowly(): void {
+    getNovelsSlowly():void {
         this.novelService.getNovelsSlowly().then(novels => this.novels = novels)
     }
 
     title = 'Novels';
     novel:Novel = {
         type: 'Fiction',
-        name: 'Emma'
+        name: 'Emma',
+        id:1
     };
 
-    selectedNovel: Novel;
+    selectedNovel:Novel;
 
-    onSelect(novel: Novel): void {
+    onSelect(novel:Novel):void {
         this.selectedNovel = novel;
     }
-
-   
-
 
 
 }

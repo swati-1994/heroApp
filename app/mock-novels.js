@@ -1,10 +1,10 @@
 "use strict";
 exports.NOVELS = [
-    { type: 'Scientific', name: 'Deception Point' },
-    { type: 'Thriller', name: 'Girl with the dragon tattoo' },
-    { type: 'thriller', name: 'if tomorrow comes' },
-    { type: 'fiction', name: 'Inferno' },
-    { type: 'fiction', name: 'Twilight' },
-    { type: 'fiction', name: 'Thousand Splendid suns' }
+    { type: 'Scientific', name: 'Deception Point', id: 1 },
+    { type: 'Thriller', name: 'Girl with the dragon tattoo', id: 2 },
+    { type: 'thriller', name: 'if tomorrow comes', id: 3 },
+    { type: 'fiction', name: 'Inferno', id: 4 },
+    { type: 'fiction', name: 'Twilight', id: 5 },
+    { type: 'fiction', name: 'Thousand Splendid suns', id: 6 }
 ];
 //# sourceMappingURL=mock-novels.js.map

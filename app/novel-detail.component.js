@@ -23,7 +23,7 @@ var NovelDetailComponent = (function () {
     NovelDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params
-            .switchMap(function (params) { return _this.novelService.getNovels(+params['name']); })
+            .switchMap(function (params) { return _this.novelService.getNovel(+params['id']); })
             .subscribe(function (novel) { return _this.novel = novel; });
     };
     NovelDetailComponent.prototype.goBack = function () {
@@ -37,7 +37,7 @@ var NovelDetailComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'my-novel-detail',
-            template: "\n<div *ngIf=\"novel\">\n    <h2>Let us read about {{novel.name}}!  </h2>\n<div>\n    <label>name:</label>\n<input [(ngModel)]=\"novel.name\" placeholder=\"name\">\n    </div>\n    \n     <button (click)=\"goBack()\">Back</button>\n    </div>\n   "
+            template: "\n    <div *ngIf=\"novel\">\n        <h2>Let us read about {{novel.name}}!  </h2>\n        <div>\n            <label>name:</label>\n            <input [(ngModel)]=\"novel.name\" placeholder=\"name\">\n        </div>    \n         <button (click)=\"goBack()\">Back</button>\n    </div>\n   "
         }), 
         __metadata('design:paramtypes', [novel_service_1.NovelService, router_1.ActivatedRoute, common_1.Location])
     ], NovelDetailComponent);
