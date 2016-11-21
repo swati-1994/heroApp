@@ -13,6 +13,9 @@ var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var novels_component_1 = require('./novels.component');
 var novel_detail_component_1 = require('./novel-detail.component');
+var router_1 = require('@angular/router');
+var app_component_1 = require("./app.component");
+var dashboard_component_1 = require("./dashboard.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -20,13 +23,30 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
-                forms_1.FormsModule
+                forms_1.FormsModule,
+                router_1.RouterModule.forRoot([
+                    {
+                        path: 'novels',
+                        component: novels_component_1.NovelsComponent
+                    },
+                    {
+                        path: 'dashboard',
+                        component: dashboard_component_1.DashboardComponent
+                    },
+                    {
+                        path: '',
+                        redirectTo: '/dashboard',
+                        pathMatch: 'full'
+                    }
+                ])
             ],
             declarations: [
                 novels_component_1.NovelsComponent,
-                novel_detail_component_1.NovelDetailComponent
+                dashboard_component_1.DashboardComponent,
+                novel_detail_component_1.NovelDetailComponent,
+                app_component_1.AppComponent
             ],
-            bootstrap: [novels_component_1.NovelsComponent]
+            bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

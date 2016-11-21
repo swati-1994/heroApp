@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Novel } from './novel';
+import {Component, Input} from '@angular/core';
+import {Novel} from './novel';
 @Component({
     selector: 'my-novel-detail',
     template: `
@@ -14,5 +14,5 @@ import { Novel } from './novel';
 })
 export class NovelDetailComponent {
     @Input()
-    novel: Novel;
+    novel:Novel;
 }
