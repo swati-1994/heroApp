@@ -3,16 +3,21 @@
  */
 import {Component} from '@angular/core';
 import { Novel } from './novel';
+import { NovelDetailComponent } from './novel-detail.component';
+import { NovelService } from './novel.service';
+import { NOVELS } from './mock-novels';
+import { OnInit } from '@angular/core';
 
+const novels: Novel[]
 
-const NOVELS:Novel[] = [
-    {type: 'Scientific', name: 'Deception Point'},
-    {type: 'Thriller', name: 'Girl with the dragon tattoo'},
-    {type: 'thriller', name: 'if tomorrow comes'},
-    {type: 'fiction', name: 'Inferno'},
-    {type: 'fiction', name: 'Twilight'},
-    {type: 'fiction', name: 'Thousand Splendid suns'}
-];
+// const NOVELS:Novel[] = [
+//     {type: 'Scientific', name: 'Deception Point'},
+//     {type: 'Thriller', name: 'Girl with the dragon tattoo'},
+//     {type: 'thriller', name: 'if tomorrow comes'},
+//     {type: 'fiction', name: 'Inferno'},
+//     {type: 'fiction', name: 'Twilight'},
+//     {type: 'fiction', name: 'Thousand Splendid suns'}
+// ];
 
 @Component({
     selector: 'my-app',
@@ -86,18 +91,31 @@ const NOVELS:Novel[] = [
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
   }
-`]
+  
+  
+`],
 
+    providers: [NovelService]
 
 })
 
 
-export class AppComponent {
+export class AppComponent implements OnInit {
 
+    ngOnInit(): void {
 
+        this.getNovels();
+
+    }
+
+    constructor(private novelService: NovelService) { }
 
     novels = NOVELS;
 
+    getNovels(): void {
+        this.novelService.getNovels().then(novels => this.novels = novels)
+    }
+    
     title = 'Novels';
     novel:Novel = {
         type: 'Fiction',
@@ -109,6 +127,9 @@ export class AppComponent {
     onSelect(novel: Novel): void {
         this.selectedNovel = novel;
     }
+
+
+
 
 
 }
