@@ -14,7 +14,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var novel_service_1 = require('./novel.service');
 var mock_novels_1 = require('./mock-novels');
-var novels;
+var novels = [];
 // const NOVELS:Novel[] = [
 //     {type: 'Scientific', name: 'Deception Point'},
 //     {type: 'Thriller', name: 'Girl with the dragon tattoo'},

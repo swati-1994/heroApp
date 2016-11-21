@@ -8,7 +8,7 @@ import { NovelService } from './novel.service';
 import { NOVELS } from './mock-novels';
 import { OnInit } from '@angular/core';
 
-const novels: Novel[]
+const novels: Novel[]=[];
 
 // const NOVELS:Novel[] = [
 //     {type: 'Scientific', name: 'Deception Point'},
