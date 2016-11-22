@@ -15,11 +15,11 @@ var novels_component_1 = require('./novels.component');
 var novel_detail_component_1 = require('./novel-detail.component');
 var angular_in_memory_web_api_1 = require('angular-in-memory-web-api');
 var in_memory_data_service_1 = require('./in-memory-data.service');
-var dashboard_component_1 = require('./dashboard.component');
 var app_component_1 = require("./app.component");
 var novel_service_1 = require('./novel.service');
 var app_routing_module_1 = require('./app-routing.module');
 var http_1 = require('@angular/http');
+var dashboard_component_1 = require("./dashboard.component");
 var AppModule = (function () {
     function AppModule() {
     }

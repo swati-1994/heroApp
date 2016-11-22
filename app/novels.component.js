@@ -12,7 +12,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by swati on 18/11/16.
  */
 var core_1 = require('@angular/core');
-var in_memory_data_service_ts_1 = require('./in-memory-data.service.ts');
+var in_memory_data_service_1 = require('./in-memory-data.service');
 var router_1 = require('@angular/router');
 var novel_service_1 = require('./novel.service');
 var novels = [];
@@ -28,7 +28,7 @@ var NovelsComponent = (function () {
     function NovelsComponent(router, novelService) {
         this.router = router;
         this.novelService = novelService;
-        this.novels = in_memory_data_service_ts_1.NOVELS;
+        this.novels = in_memory_data_service_1.novels;
         this.title = 'Novels';
         this.novel = {
             type: 'Fiction',

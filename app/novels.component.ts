@@ -5,7 +5,7 @@ import {Component} from '@angular/core';
 import {Novel} from './novel';
 import {NovelDetailComponent} from './novel-detail.component';
 
-import {NOVELS} from './in-memory-data.service.ts';
+import {NOVELS} from './in-memory-data.service';
 import {OnInit} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {Router} from '@angular/router';

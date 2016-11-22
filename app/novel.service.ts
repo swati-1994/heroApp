@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+
 import {Novel} from './novel';
 import 'rxjs/add/operator/toPromise';
 import {ActivatedRoute, Params}   from '@angular/router';
