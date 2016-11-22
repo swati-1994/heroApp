@@ -27,7 +27,8 @@ var NovelsComponent = (function () {
     function NovelsComponent(router, novelService) {
         this.router = router;
         this.novelService = novelService;
-        this.novels = NOVELS;
+        // novels = NOVELS;
+        this.novels = [];
         this.title = 'Novels';
         this.novel = {
             type: 'Fiction',

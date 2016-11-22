@@ -5,7 +5,7 @@ import {Component} from '@angular/core';
 import {Novel} from './novel';
 import {NovelDetailComponent} from './novel-detail.component';
 
-import {NOVELS} from './in-memory-data.service';
+// import {NOVELS} from './in-memory-data.service';
 import {OnInit} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {Router} from '@angular/router';
@@ -68,7 +68,12 @@ export class NovelsComponent implements OnInit {
                 private novelService:NovelService) {
     }
 
-    novels = NOVELS;
+    // novels = NOVELS;
+
+
+    
+    novels:Novel[] = [];
+
 
     gotoDetail():void {
         this.router.navigate(['/detail', this.selectedNovel.id]);
